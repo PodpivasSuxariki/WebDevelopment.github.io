@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Формы</title>
+</head>
+<body>
+
+<form>
+    Фамилия:
+    <input type="text" value="Иванов">
+
+    <h2>Группа переключателей</h2>
+
+    <input type="radio" name="color"> Белый<br>
+    <input type="radio" name="color"> Красный<br>
+    <input type="radio" name="color"> Желтый<br>
+    <input type="radio" name="color"> Зеленый<br>
+
+    <h2>Группа флажков</h2>
+
+    <input type="checkbox"> Груша<br>
+    <input type="checkbox"> Персик<br>
+    <input type="checkbox"> Яблоко<br><br>
+
+    <input type="button" value="Пишите мне"><br><br>
+    <input type="button" value="Посмотрите мои фотографии">
+</form>
+
+<hr>
+
+<form>
+    <h2>Выберите страну:</h2>
+
+    Раскрывающийся список:
+    <select>
+        <option>Беларусь</option>
+        <option>Казахстан</option>
+        <option>Россия</option>
+        <option>Украина</option>
+    </select>
+
+    <br><br>
+
+    Обычный список:
+    <select size="4" multiple>
+        <option>Беларусь</option>
+        <option>Казахстан</option>
+        <option selected>Россия</option>
+        <option>Украина</option>
+    </select>
+</form>
+
+<br>
+<hr>
+
+<form id="questionnaire">
+    <h2>АНКЕТА</h2>
+
+    Ваше имя:
+    <input type="text" id="name" name="name">
+
+    <br><br>
+
+    Ваш пол:
+    <input type="radio" name="gender" value="женский"> женский
+    <input type="radio" name="gender" value="мужской"> мужской
+
+    <h3>На каком курсе вы учитесь?</h3>
+
+    <select id="course" name="course">
+        <option value="первый">первый</option>
+        <option value="второй">второй</option>
+        <option value="третий">третий</option>
+        <option value="четвертый">четвертый</option>
+    </select>
+
+    <h3>Какие языки программирования вы знаете?</h3>
+
+    <input type="checkbox" name="language" value="Pascal"> Pascal<br>
+    <input type="checkbox" name="language" value="Python"> Python<br>
+    <input type="checkbox" name="language" value="C#"> C#<br>
+    <input type="checkbox" name="language" value="C++"> C++<br>
+
+    <h3>Напишите несколько слов о себе</h3>
+
+    <textarea id="about" name="about" rows="10" cols="50"></textarea>
+
+    <br><br>
+
+    <input type="submit" value="Отправка данных">
+    <input type="reset" value="Сброс значений полей">
+</form>
+
+<div id="result" hidden>
+    <h2>Введённые данные</h2>
+    <p><strong>Имя:</strong> <span id="resultName"></span></p>
+    <p><strong>Пол:</strong> <span id="resultGender"></span></p>
+    <p><strong>Курс:</strong> <span id="resultCourse"></span></p>
+    <p><strong>Языки программирования:</strong> <span id="resultLanguages"></span></p>
+    <p><strong>О себе:</strong> <span id="resultAbout"></span></p>
+</div>
+
+<br>
+
+<a href="index.html">Вернуться на главную страницу</a><br>
+<a href="Page_2.html">Перейти к таблицам</a>
+
+<script>
+    const form = document.getElementById('questionnaire');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const gender = document.querySelector('input[name="gender"]:checked');
+        const course = document.getElementById('course').value;
+        const languages = Array.from(
+            document.querySelectorAll('input[name="language"]:checked')
+        ).map(item => item.value);
+        const about = document.getElementById('about').value.trim();
+
+        document.getElementById('resultName').textContent = name || 'не указано';
+        document.getElementById('resultGender').textContent = gender ? gender.value : 'не указан';
+        document.getElementById('resultCourse').textContent = course;
+        document.getElementById('resultLanguages').textContent = languages.length
+            ? languages.join(', ')
+            : 'не указаны';
+        document.getElementById('resultAbout').textContent = about || 'не указано';
+
+        result.hidden = false;
+    });
+
+    form.addEventListener('reset', function () {
+        result.hidden = true;
+    });
+</script>
+
+</body>
+</html>
