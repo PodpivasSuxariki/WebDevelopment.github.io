@@ -110,29 +110,59 @@
     const form = document.getElementById('questionnaire');
     const result = document.getElementById('result');
 
+    function showResult(data) {
+        document.getElementById('resultName').textContent = data.name || 'не указано';
+        document.getElementById('resultGender').textContent = data.gender || 'не указан';
+        document.getElementById('resultCourse').textContent = data.course || 'не указан';
+        document.getElementById('resultLanguages').textContent = data.languages.length
+            ? data.languages.join(', ')
+            : 'не указаны';
+        document.getElementById('resultAbout').textContent = data.about || 'не указано';
+
+        result.hidden = false;
+    }
+
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        const name = document.getElementById('name').value.trim();
-        const gender = document.querySelector('input[name="gender"]:checked');
-        const course = document.getElementById('course').value;
-        const languages = Array.from(
-            document.querySelectorAll('input[name="language"]:checked')
-        ).map(item => item.value);
-        const about = document.getElementById('about').value.trim();
+        const data = {
+            name: document.getElementById('name').value.trim(),
+            gender: document.querySelector('input[name="gender"]:checked')?.value || '',
+            course: document.getElementById('course').value,
+            languages: Array.from(
+                document.querySelectorAll('input[name="language"]:checked')
+            ).map(item => item.value),
+            about: document.getElementById('about').value.trim()
+        };
 
-        document.getElementById('resultName').textContent = name || 'не указано';
-        document.getElementById('resultGender').textContent = gender ? gender.value : 'не указан';
-        document.getElementById('resultCourse').textContent = course;
-        document.getElementById('resultLanguages').textContent = languages.length
-            ? languages.join(', ')
-            : 'не указаны';
-        document.getElementById('resultAbout').textContent = about || 'не указано';
-
-        result.hidden = false;
+        localStorage.setItem('questionnaireData', JSON.stringify(data));
+        showResult(data);
     });
 
+    const savedData = localStorage.getItem('questionnaireData');
+
+    if (savedData) {
+        const data = JSON.parse(savedData);
+
+        document.getElementById('name').value = data.name;
+        document.getElementById('course').value = data.course;
+        document.getElementById('about').value = data.about;
+
+        if (data.gender) {
+            const gender = document.querySelector(`input[name="gender"][value="${data.gender}"]`);
+            if (gender) gender.checked = true;
+        }
+
+        data.languages.forEach(function (language) {
+            const checkbox = document.querySelector(`input[name="language"][value="${language}"]`);
+            if (checkbox) checkbox.checked = true;
+        });
+
+        showResult(data);
+    }
+
     form.addEventListener('reset', function () {
+        localStorage.removeItem('questionnaireData');
         result.hidden = true;
     });
 </script>
