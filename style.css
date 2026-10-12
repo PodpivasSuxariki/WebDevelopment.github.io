@@ -108,9 +108,9 @@ input[type="reset"]:hover {
 }
 
 #main-menu {
-    background-color: #f3f3f3; /* Светло-серый фон, как у кнопок в формах */
+    background-color: #f3f3f3; 
     padding: 15px;
-    border-radius: 8px; /* Закругленные углы, как у твоих картинок */
+    border-radius: 8px; 
     text-align: center;
     margin-bottom: 20px;
 }
