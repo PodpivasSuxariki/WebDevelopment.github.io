@@ -1,0 +1,35 @@
+<html> 
+<head> 
+
+<link rel="stylesheet" href="style.css">
+
+    <title>Школьные предметы</title> 
+    
+    <script language="JavaScript"> 
+        function showSubjects() {
+            var subjects = new Array("Алгебра", "Геометрия", "Физика", "История", "Литература", "Русский язык");
+            
+            var exactSciences = subjects.slice(0, 3);
+            
+            var humanities = subjects.slice(3, 6);
+            
+            document.write("<h3>Точные науки:</h3>");
+            document.write(exactSciences + "<br>");
+            
+            document.write("<h3>Гуманитарные науки:</h3>");
+            document.write(humanities + "<br>");
+        }
+    </script> 
+</head> 
+<body> 
+
+<nav id="main-menu"></nav>
+<script src="menu.js"></script>
+
+    <h2>Разделение школьных предметов</h2>
+    
+    <script language="JavaScript"> 
+        showSubjects();  
+    </script> 
+</body> 
+</html>

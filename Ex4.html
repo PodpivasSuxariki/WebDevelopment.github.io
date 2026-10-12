@@ -1,0 +1,40 @@
+<html> 
+<head> 
+    <title>Задание 1</title> 
+</head> 
+
+    <link rel="stylesheet" href="style.css">
+	
+<body> 
+
+<nav id="main-menu"></nav>
+<script src="menu.js"></script>
+
+    <script language="JavaScript" type="text/JavaScript"> 
+        
+        var x, y;  
+        
+        x = parseInt(prompt("Введите значение х", '')); 
+        y = parseInt(prompt("Введите значение у", ''));   
+        
+        if (x == y) {
+            alert("Введенные числа равны!");
+        } else if (y > x) {  
+            alert("Максимальное число - y");  
+        } else {  
+            alert("Максимальное число - x");  
+        }  
+
+        
+        var password = "123"; 
+        
+        var user_password = prompt("Введите пароль:", "");
+        
+        if (user_password == password) {
+            document.write("<h2>Пароль верен!</h2>");
+        } else {
+            document.write("<h2>Сообщение о неправильно введенном пароле.</h2>");
+        }
+    </script> 
+</body> 
+</html>

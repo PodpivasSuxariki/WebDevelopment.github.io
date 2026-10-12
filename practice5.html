@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Практическая работа №5</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <script type="text/javascript">
+        var arr = ["Сидорович", "Воронин", "Лукаш", "Харон", "Борода"];
+        var counter = 0;
+        
+        function add_to_list() {
+            if (typeof(arr[counter]) != "undefined") {
+                var list = document.getElementById('list');
+                var li = document.createElement('LI');
+                li.innerHTML = arr[counter];
+                list.appendChild(li);
+                counter++;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <nav id="main-menu"></nav>
+	<script src="menu.js"></script>
+
+    <h2>Динамическое создание списка</h2>
+
+    <p onclick="add_to_list()" style="color: blue; text-decoration: underline; cursor: pointer;"> 
+        Добавить в список
+    </p>
+
+    <ul id="list"></ul>
+
+</body>
+</html>

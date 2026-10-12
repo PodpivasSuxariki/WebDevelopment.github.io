@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 3 - Степени двойки</title>
+</head>
+
+<link rel="stylesheet" href="style.css">
+
+<body>
+
+<nav id="main-menu"></nav>
+<script src="menu.js"></script>
+
+    <h2>Таблица степеней двойки</h2>
+
+    <script type="text/javascript">
+        document.write("<table border='1' cellspacing='0' cellpadding='5'>");
+        
+        document.write("<tr bgcolor='lightgray'><th>Степень</th><th>Результат</th></tr>");
+
+        for (var i = 0; i <= 5; i++) {
+
+            var result = Math.pow(2, i);
+
+            document.write(
+                "<tr>",
+                "<td align='center'>2<sup>", i, "</sup></td>", 
+                "<td align='center'>", result, "</td>",
+                "</tr>"
+            );
+        }
+
+        document.write("</table>");
+    </script>
+    
+</body>
+</html>
