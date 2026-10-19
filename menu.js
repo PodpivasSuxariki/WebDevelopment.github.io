@@ -10,6 +10,7 @@ function renderMenu() {
 		<a href="Ex7.html">ПР №9 Задание 4</a>
 		<a href="Ex8.html">ПР №9 Задание 5</a>
 		<a href="song.html">Музыка и видео</a>
+		<a href="Pr10.html">ПР №10</a>
     `;
 
     const menuContainer = document.getElementById('main-menu');

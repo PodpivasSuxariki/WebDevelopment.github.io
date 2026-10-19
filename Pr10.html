@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Практическая работа №10</title>
+    
+    <script language="JavaScript">
+        // Задание 2
+        function openNewWindow() {
+            window.open("", "", "width=500, height=500, resizable=yes");
+        }
+
+        // Задание 3
+        function redirect() {
+            window.location.href = "index.html";
+        }
+        function startRedirectTimer() {
+            alert("Переадресация начнется через 5 секунд...");
+            setTimeout("redirect()", 5000);
+        }
+
+        // Задание 5
+        var originalWidth = 200;
+        var originalHeight = 200;
+        function zoomIn() {
+            document.getElementById('myImage').width = originalWidth * 1.5;
+            document.getElementById('myImage').height = originalHeight * 1.5;
+        }
+        function zoomOut() {
+            document.getElementById('myImage').width = originalWidth;
+            document.getElementById('myImage').height = originalHeight;
+        }
+
+        // Задание 6
+        function validateForm() {
+            var f = document.forms["myForm"];
+            
+            if (f.elements["username"].value == "") {
+                alert("Пожалуйста, введите Ваше имя!");
+                f.elements["username"].focus();
+                return;
+            }
+            if (f.elements["pass1"].value.length <= 4) {
+                alert("Пароль должен содержать больше 4-х символов!");
+                f.elements["pass1"].focus();
+                return;
+            }
+            if (f.elements["pass1"].value != f.elements["pass2"].value) {
+                alert("Введенные пароли не совпадают!");
+                f.elements["pass2"].focus();
+                return;
+            }
+            if (f.elements["email"].value == "" || f.elements["email"].value.indexOf('@') == -1) {
+                alert("Введите корректный электронный адрес, содержащий символ '@'!");
+                f.elements["email"].focus();
+                return;
+            }
+            if (f.elements["message"].value.length <= 10) {
+                alert("Сообщение должно содержать больше 10 символов!");
+                f.elements["message"].focus();
+                return;
+            }
+            
+            alert("Все данные введены верно! Форма готова к отправке.");
+        }
+    </script>
+</head>
+
+<!-- Задаем цвет фона и красный цвет шрифта для всей страницы по Заданию 1 -->
+<body bgcolor="#E7E6D8" text="red">
+<nav id="main-menu"></nav>
+<script src="menu.js"></script>
+
+    <h1>Практическая работа №10</h1>
+
+    <h3>Задание 1: Модификация документа</h3>
+    <script language="JavaScript" type="text/JavaScript">
+        document.write("Спасибо, что пришли к нам на курсы!<br>");
+        document.write("Дата последней модификации документа: " + document.lastModified);
+    </script>
+    <hr>
+
+    <h3>Задание 2: Новое окно</h3>
+    <a href="#" onclick="openNewWindow();">Щелкните на ссылке для получения справочной информации</a>
+    <hr>
+
+    <h3>Задание 3: Переадресация</h3>
+    <a href="#" onclick="startRedirectTimer();">Запустить переадресацию (переход через 5 секунд)</a>
+    <hr>
+
+    <h3>Задание 4: Ссылки и события</h3>
+    <a href="Kirgizova_WEB-TEKhNOLOGII_ot_teorii_k_praktike.pdf" ">Скачать PDF файл</a><br><br>
+    <a href="#" onmouseover="document.bgColor='red';" onmouseout="document.bgColor='#E7E6D8';">Наведи на меня мышку, чтобы изменить фон</a>
+    <hr>
+
+    <h3>Задание 5: Масштабирование картинки</h3>
+    <img id="myImage" src="bober.jpg" width="200" height="200" onmouseover="zoomIn();" onmouseout="zoomOut();">
+    <hr>
+
+    <h3>Задание 6: Форма</h3>
+    <form name="myForm">
+        <table>
+            <tr>
+                <td>Ваше имя*</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>Пароль*</td>
+                <td><input type="password" name="pass1"></td>
+            </tr>
+            <tr>
+                <td>Подтверждение пароля*</td>
+                <td><input type="password" name="pass2"></td>
+            </tr>
+            <tr>
+                <td>Электронный адрес:*</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td>Тема сообщения:</td>
+                <td><input type="text" name="subject"></td>
+            </tr>
+            <tr>
+                <td valign="top">Сообщение:</td>
+                <td><textarea name="message" rows="5" cols="30"></textarea></td>
+            </tr>
+        </table><br>
+        <input type="button" value="Отправить" onclick="validateForm();">
+        <input type="reset" value="Очистить">
+        <p>* – необходимые для заполнения поля</p>
+    </form>
+
+</body>
+</html>
