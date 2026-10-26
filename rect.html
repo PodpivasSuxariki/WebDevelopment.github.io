@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Карта с треугольниками</title>
+</head>
+<body>
+
+	<nav id="main-menu"></nav>
+    <script src="menu.js"></script>
+
+    <h1>Выбери свой цвет</h1>
+    <p>Наведи мышку на любой треугольник, чтобы увидеть подсказку, и кликни для перехода.</p>
+
+    <img src="Media\rect.png" usemap="#colors_map" alt="Цветные треугольники" border="0">
+
+    <map name="colors_map">
+
+        <area shape="poly" coords="5,0,196,1,100,72" href="index.html" title="Перейти на главную страницу" alt="Красный">
+
+        <area shape="poly" coords="105,75,200,3,200,148" href="song.html" title="Перейти на страницу с песнями и видео" alt="Желтый">
+
+        <area shape="poly" coords="5,148,98,77,193,149" href="map.html" title="Перейти на страницу с картой" alt="Зеленый">
+
+        <area shape="poly" coords="1,146,96,75,1,4" href="Forms.html" title="Перейти на страницу с формой" alt="Оранжевый">
+    </map>
+
+</body>
+</html>

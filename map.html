@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Интерактивная карта Зоны</title>
+    <style>
+        body {
+            background-color: #2b2b2b; 
+            text-align: center; 
+            font-family: Arial, sans-serif;
+        }
+        h1, p {
+            color: #ffffff;
+        }
+        .map-container {
+            display: inline-block;
+            border: 3px solid #ff6600; 
+            margin-top: 20px;
+            width: 90vw; 
+            max-width: 1200px; 
+        }
+        img {
+            display: block;
+            width: 100%; 
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="main-menu"></nav>
+    <script src="menu.js"></script>
+
+    <h1>Карта Зоны Отчуждения</h1>
+    <p>Наведи курсор на территорию, чтобы узнать её название. Кликни, чтобы перейти на Wiki.</p>
+
+    <div class="map-container">
+        <img id="stalker-map" src="Media\map.jpg" usemap="#zone_map" alt="Карта Сталкер">
+    </div>
+
+    <map name="zone_map">
+        <area shape="poly" coords="859,1641,877,1609,928,1590,935,1559,893,1510,886,1448,864,1428,874,1396,872,1367,834,1336,819,1298,828,1280,852,1273,872,1244,893,1264,937,1269,963,1282,1001,1280,1029,1285,1069,1289,1102,1295,1129,1336,1160,1354,1172,1382,1150,1462,1154,1509,1136,1547,1100,1572,1080,1618,1062,1650,1049,1690,930,1686,888,1677,870,1659" href="https://stalker.fandom.com/ru/wiki/Малая_зона" target="_blank" title="Малая зона">
+        <area shape="poly" coords="609,522,777,401,730,332,730,290,705,270,524,261,504,281,531,321,495,345,536,403,489,441" href="https://stalker.fandom.com/ru/wiki/Припять" target="_blank" title="Припять">
+        <area shape="poly" coords="345,640,616,616,665,576,743,571,679,475,611,526,482,441,439,459,408,491,336,614" href="https://stalker.fandom.com/ru/wiki/Окрестности_«Юпитера»" target="_blank" title="Юпитер">
+        <area shape="poly" coords="307,784,305,744,314,714,314,703,337,681,346,641,616,616,668,578,746,569,817,679,748,701,679,706,636,730,562,748,466,734,448,732,410,741,359,775" href="https://stalker.fandom.com/ru/wiki/Янов" target="_blank" title="Янов">
+        <area shape="poly" coords="744,569,860,517,1123,517,1121,433,1092,379,1054,365,945,366,909,381,817,372,784,393,779,404,685,475" href="https://stalker.fandom.com/ru/wiki/Генераторы" target="_blank" title="Генераторы">
+        <area shape="poly" coords="826,734,1152,732,1170,732,1190,716,1184,517,1124,513,866,520,748,573,820,679" href="https://stalker.fandom.com/ru/wiki/ЧАЭС" target="_blank" title="ЧАЭС">
+        <area shape="poly" coords="350,922,318,877,307,792,357,777,410,741,451,732,551,750,625,734,676,703,739,703,819,679,820,723,822,770,831,810,849,855,795,868,678,864,460,864" href="https://stalker.fandom.com/ru/wiki/Рыжий_лес" target="_blank" title="Рыжий лес">
+        <area shape="poly" coords="886,867,1148,867,1148,733,822,733,825,773,836,817,849,854" href="https://stalker.fandom.com/ru/wiki/Железный_лес" target="_blank" title="Железный лес">
+        <area shape="poly" coords="1150,842,1148,732,1167,730,1187,714,1290,714,1315,745,1431,776,1460,798,1475,833,1510,888,1506,914,1482,925,1466,978,1424,967" href="https://stalker.fandom.com/ru/wiki/Градирня" target="_blank" title="Градирни">
+        <area shape="poly" coords="442,1138,611,1138,620,1001,669,869,469,867,350,924,376,964,427,975,429,1050,405,1065" href="https://stalker.fandom.com/ru/wiki/Янтарь" target="_blank" title="Янтарь">
+        <area shape="poly" coords="616,1134,838,1138,871,1127,890,1088,888,872,844,857,798,866,675,866,622,995" href="https://stalker.fandom.com/ru/wiki/Росток" target="_blank" title="Росток">
+        <area shape="poly" coords="886,871,1150,869,1159,1258,1104,1285,1053,1287,1007,1285,956,1277,937,1268,886,1266,862,1241,840,1213,838,1142,871,1129,890,1098" href="https://stalker.fandom.com/ru/wiki/Свалка" target="_blank" title="Свалка">
+        <area shape="poly" coords="152,1140,1150,848,1466,980,1449,1026,1495,1127,1367,1145" href="https://stalker.fandom.com/ru/wiki/Цементный_завод" target="_blank" title="Цементный завод">
+        <area shape="poly" coords="165,1365,124,1343,110,1295,82,1282,53,1280,38,1212,60,1106,49,1066,86,1066,99,1042,258,1042,319,1058,337,1066,385,1069,409,1069,440,1137,396,1185,392,1260,374,1297,372,1357" href="https://stalker.fandom.com/ru/wiki/Малахит" target="_blank" title="Малахит">
+        <area shape="poly" coords="480,1417,374,1351,374,1305,394,1268,392,1191,440,1143,836,1140,836,1193,857,1242,857,1268,825,1277,814,1290,827,1314,825,1332,866,1369,864,1391,855,1420,827,1428,792,1439,748,1435,719,1417" href="https://stalker.fandom.com/ru/wiki/Химзавод" target="_blank" title="Химзавод">
+        <area shape="poly" coords="371,1360,486,1426,483,1598,524,1650,532,1705,486,1745,463,1765,456,1740,429,1759,247,1532,216,1547,173,1489,158,1443,184,1403,170,1365,242,1360" href="https://stalker.fandom.com/ru/wiki/Дуга" target="_blank" title="Дуга">
+        <area shape="poly" coords="491,1425,712,1422,800,1447,851,1438,879,1453,888,1517,932,1563,928,1585,851,1622,774,1629,743,1675,701,1664,622,1675,587,1695,530,1702,528,1649,486,1596" href="https://stalker.fandom.com/ru/wiki/Сгоревший_лес" target="_blank" title="Сгоревший лес">
+        <area shape="poly" coords="1497,1138,1589,1220,1387,1490,1348,1426,1282,1417,1205,1450,1165,1433,1167,1358,1104,1290,1152,1257,1154,1145" href="https://stalker.fandom.com/ru/wiki/Дикая_территория" target="_blank" title="Дикий остров">
+        <area shape="poly" coords="1616,1225,1646,1245,1717,1247,1798,1228,1811,1170,1791,1129,1743,1107,1679,1089,1642,1100,1616,1144" href="https://stalker.fandom.com/ru/wiki/НИИЧАЗ" target="_blank" title="НИИЧАЗ">
+        <area shape="poly" coords="1137,1768,1209,1770,1207,1744,1207,1687,1301,1652,1297,1608,1306,1555,1249,1520,1240,1483,1209,1452,1161,1445,1150,1500,1145,1546,1093,1588,1062,1663,1051,1704,1084,1729,1110,1742" href="https://stalker.fandom.com/ru/wiki/Кордон_(старый)" target="_blank" title="Кордон">
+        <area shape="poly" coords="1389,1484,1587,1218,1679,1253,1802,1233,1936,1277,1965,1306,1976,1462,2046,1654,2044,1755,1912,1715,1846,1731,1747,1854,1671,1792,1532,1643,1449,1614,1396,1573,1400,1513" href="https://stalker.fandom.com/ru/wiki/Затон" target="_blank" title="Затон">
+        <area shape="poly" coords="1747,1855,1796,1807,1846,1730,1903,1719,2046,1754,2046,1851,2046,2011,1945,1998,1903,2000,1774,1921,1750,1904,1750,1877" href="https://stalker.fandom.com/ru/wiki/Болота" target="_blank" title="Болота">
+    </map>
+
+    <script>
+        function resizeMap() {
+            var img = document.getElementById('stalker-map');
+            var map = document.getElementsByName('zone_map')[0];
+            var areas = map.getElementsByTagName('area');
+
+            if (!img.naturalWidth) return;
+
+            var ratio = img.clientWidth / img.naturalWidth;
+
+            for (var i = 0; i < areas.length; i++) {
+                if (!areas[i].dataset.originalCoords) {
+                    areas[i].dataset.originalCoords = areas[i].coords;
+                }
+                
+                var originalCoords = areas[i].dataset.originalCoords.split(',');
+                var scaledCoords = [];
+                
+                for (var j = 0; j < originalCoords.length; j++) {
+                    scaledCoords.push(Math.round(originalCoords[j] * ratio));
+                }
+                
+                areas[i].coords = scaledCoords.join(',');
+            }
+        }
+
+        window.addEventListener('load', resizeMap);
+        window.addEventListener('resize', resizeMap);
+    </script>
+</body>
+</html>
