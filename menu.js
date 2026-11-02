@@ -1,5 +1,4 @@
 function renderMenu() {
-    // Формируем меню из кнопок вместо обычных ссылок
     const menuHTML = `
         <button onclick="window.location.href='index.html'">Главная страница</button>
         <button onclick="window.location.href='Page_2.html'">Таблицы</button>
@@ -14,11 +13,11 @@ function renderMenu() {
         <button onclick="window.location.href='Pr10.html'">ПР №10</button>
         <button onclick="window.location.href='rect.html'">Прямоугольник с кнопочками</button>
         <button onclick="window.location.href='map.html'">Карта</button>
+		<button onclick="window.location.href='image.html'">Карточки</button>
     `;
 
     const menuContainer = document.getElementById('main-menu');
 
-    // Проверяем, существует ли контейнер, и вставляем в него кнопки
     if (menuContainer) {
         menuContainer.innerHTML = menuHTML;
     } else {
@@ -26,5 +25,4 @@ function renderMenu() {
     }
 }
 
-// Запускаем функцию построения меню после полной загрузки страницы
 document.addEventListener('DOMContentLoaded', renderMenu);

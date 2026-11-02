@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<title>Группировки S.T.A.L.K.E.R.</title>
+<style>
+        .bas { position: relative; width: 1050px; height: 850px; margin: auto; }
+        
+        .im { 
+            position: absolute; 
+            width: 300px; 
+            border-radius: 8px; 
+            z-index: 1; 
+            transition: all 1s ease; 
+        }
+
+/* Исходные точные координаты сетки 3x3 */
+#i1 {left: 20px; top: 20px;}
+#i2 {left: 360px; top: 20px;}
+#i3 {left: 700px; top: 20px;}
+
+#i4 {left: 20px; top: 280px;}
+#i5 {left: 360px; top: 280px;}
+#i6 {left: 700px; top: 280px;}
+
+#i7 {left: 20px; top: 540px;}
+#i8 {left: 360px; top: 540px;}
+#i9 {left: 700px; top: 540px;}
+</style>
+
+<script>
+        let y = 1;
+        let activeImg = null;
+        let isLocked = false;
+
+        // Словарь с точными исходными координатами для каждого ID
+        const originalCoords = {
+            "i1": {left: 20, top: 20},
+            "i2": {left: 360, top: 20},
+            "i3": {left: 700, top: 20},
+            "i4": {left: 20, top: 280},
+            "i5": {left: 360, top: 280},
+            "i6": {left: 700, top: 280},
+            "i7": {left: 20, top: 540},
+            "i8": {left: 360, top: 540},
+            "i9": {left: 700, top: 540}
+        };
+
+        addEventListener("mouseover", (ev) => {
+            if (y === 2 || isLocked) return;
+
+            let e = ev.target;
+            if (e.tagName == "IMG") {
+                for (let i = 1; i < 10; i++) {
+                    let b = "i" + i;
+                    let el = document.getElementById(b);
+                    if (el) {
+                        if (e.id != b) {
+                            el.style.opacity = 0.1;
+                        } else {
+                            el.style.opacity = 1; 
+                        }
+                    }
+                }
+            } else {
+                for (let i = 1; i < 10; i++) {
+                    let b = "i" + i;
+                    let el = document.getElementById(b);
+                    if (el) el.style.opacity = 1;
+                }
+            }
+        });
+
+        addEventListener("click", (ev) => {
+            let e = ev.target;
+            
+            if (e.tagName == "IMG") {
+                if (isLocked) return;
+
+                isLocked = true;
+                setTimeout(() => { isLocked = false; }, 1000);
+
+                if (y == 1) {
+                    activeImg = e; 
+                    let t = activeImg.style;
+                    y = 2;
+
+                    // Гасим остальные картинки
+                    for (let i = 1; i < 10; i++) {
+                        let b = "i" + i;
+                        if (activeImg.id != b) {
+                            let p = document.getElementById(b).style;
+                            p.opacity = 0; 
+                            p.pointerEvents = "none"; 
+                        }
+                    }
+
+                    t.zIndex = 2;
+                    t.opacity = 1; 
+                    t.width = 500 + "px"; // Увеличенный размер
+                    t.left = 275 + "px";  // Центр по горизонтали
+                    t.top = 175 + "px";   // Центр по вертикали
+                } 
+                else {
+                    if (activeImg) {
+                        let t = activeImg.style;
+                        y = 1;
+                        
+                        // Включаем обратно все картинки
+                        for (let i = 1; i < 10; i++) {
+                            let b = "i" + i;
+                            let p = document.getElementById(b).style;
+                            p.opacity = 1; 
+                            p.pointerEvents = "auto"; 
+                        }
+
+                        // Возвращаем картинку строго по ее родному ID из словаря координат
+                        let pos = originalCoords[activeImg.id];
+                        t.width = 300 + "px";
+                        t.left = pos.left + "px";
+                        t.top = pos.top + "px";
+                        t.zIndex = 1;
+                        
+                        activeImg = null; 
+                    }
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <nav id="main-menu"></nav>
+    <script src="menu.js"></script>
+    
+    <h1 style="color: #000; text-align: center;">Группировки Зоны</h1>
+
+<div class="bas">
+    <img id="i1" class="im" src="Media/p1.jpg" alt="Военные">
+    <img id="i2" class="im" src="Media/p2.jpg" alt="Наемники">
+    <img id="i3" class="im" src="Media/p3.jpg" alt="Свобода">
+    
+    <img id="i4" class="im" src="Media/p4.jpg" alt="Одиночки">
+    <img id="i5" class="im" src="Media/p5.png" alt="Чистое Небо">
+    <img id="i6" class="im" src="Media/p6.png" alt="Бандиты">
+    
+    <img id="i7" class="im" src="Media/p7.png" alt="Монолит">
+    <img id="i8" class="im" src="Media/p8.png" alt="Ученые">
+    <img id="i9" class="im" src="Media/p9.png" alt="Долг">
+</div>
+</body>
+</html>
