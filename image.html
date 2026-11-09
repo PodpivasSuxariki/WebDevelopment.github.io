@@ -34,7 +34,6 @@
         let activeImg = null;
         let isLocked = false;
 
-        // Словарь с точными исходными координатами для каждого ID
         const originalCoords = {
             "i1": {left: 20, top: 20},
             "i2": {left: 360, top: 20},
@@ -86,7 +85,6 @@
                     let t = activeImg.style;
                     y = 2;
 
-                    // Гасим остальные картинки
                     for (let i = 1; i < 10; i++) {
                         let b = "i" + i;
                         if (activeImg.id != b) {
@@ -98,16 +96,16 @@
 
                     t.zIndex = 2;
                     t.opacity = 1; 
-                    t.width = 500 + "px"; // Увеличенный размер
-                    t.left = 275 + "px";  // Центр по горизонтали
-                    t.top = 175 + "px";   // Центр по вертикали
+                    t.width = 500 + "px"; 
+                    t.left = 275 + "px";
+                    t.top = 175 + "px";
                 } 
                 else {
                     if (activeImg) {
                         let t = activeImg.style;
                         y = 1;
                         
-                        // Включаем обратно все картинки
+
                         for (let i = 1; i < 10; i++) {
                             let b = "i" + i;
                             let p = document.getElementById(b).style;
@@ -115,7 +113,7 @@
                             p.pointerEvents = "auto"; 
                         }
 
-                        // Возвращаем картинку строго по ее родному ID из словаря координат
+
                         let pos = originalCoords[activeImg.id];
                         t.width = 300 + "px";
                         t.left = pos.left + "px";

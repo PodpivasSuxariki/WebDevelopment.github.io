@@ -14,6 +14,7 @@ function renderMenu() {
         <button onclick="window.location.href='rect.html'">Прямоугольник с кнопочками</button>
         <button onclick="window.location.href='map.html'">Карта</button>
 		<button onclick="window.location.href='image.html'">Карточки</button>
+		<button onclick="window.location.href='Cube.html'">Задание 09.11</button>
     `;
 
     const menuContainer = document.getElementById('main-menu');
